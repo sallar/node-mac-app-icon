@@ -4,10 +4,11 @@
   "description": "Get App icons by pid on macOS in NodeJS",
   "main": "index.js",
   "scripts": {
-    "build": "cd GetAppIcon && swift build -c release",
+    "build": "./build.sh",
     "prepublish": "npm run build",
     "test": "npm run build && node test.js"
   },
+  "files": ["./GetAppIcon/.build/release/GetAppIcon"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sallar/node-mac-app-icon.git"
