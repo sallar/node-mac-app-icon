@@ -1,5 +1,7 @@
 # node-mac-app-icon
 
+[![Build Status](https://travis-ci.org/sallar/node-mac-app-icon.svg?branch=master)](https://travis-ci.org/sallar/node-mac-app-icon)
+
 Get App icons by pid on macOS in NodeJS. Returns a `base64` string representation of the App's icon.
 
 ## Install
