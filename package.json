@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "cd GetAppIcon && swift build -c release",
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
