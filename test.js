@@ -9,12 +9,12 @@ if (!finderPid) {
 
 finderPid = parseInt(finderPid.toString().trim(), 10);
 
-getAppIconByPid(finderPid.toString(), 10).then(
+getAppIconByPid(finderPid, 10).then(
   res => console.log(res),
   err => console.error(err)
 );
 
-getAppIconListByPid([finderPid.toString()], 10).then(
+getAppIconListByPid([finderPid], 10).then(
   res => console.log(res),
   err => console.error(err)
 );
