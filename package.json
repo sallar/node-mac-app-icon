@@ -1,0 +1,20 @@
+{
+  "name": "node-mac-app-icon",
+  "version": "1.0.0",
+  "description": "Get App icons by pid on macOS in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sallar/node-mac-app-icon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sallar/node-mac-app-icon/issues"
+  },
+  "homepage": "https://github.com/sallar/node-mac-app-icon#readme"
+}

@@ -1,0 +1,3 @@
+[submodule "GetAppIcon"]
+	path = GetAppIcon
+	url = https://github.com/sallar/GetAppIcon
