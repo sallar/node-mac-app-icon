@@ -2,3 +2,7 @@
 .editorconfig
 test.js
 .tmp
+*.tgz
+.travis.yml
+GetAppIcon
+build.sh

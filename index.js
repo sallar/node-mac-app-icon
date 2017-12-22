@@ -1,7 +1,7 @@
 const path = require('path');
 const child = require('child_process');
 
-const execPath = path.resolve(__dirname, 'dist/GetAppIcon');
+const execPath = path.resolve(__dirname, './run');
 
 function getAppIconByPid(pid, size = 32) {
   return new Promise((resolve, reject) => {
