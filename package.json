@@ -4,6 +4,7 @@
   "description": "Get App icons by pid on macOS in NodeJS",
   "main": "index.js",
   "scripts": {
+    "build": "cd GetAppIcon && swift build -c release",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
