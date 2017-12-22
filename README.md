@@ -4,6 +4,8 @@
 
 Get App icons by pid on macOS in NodeJS. Returns a `base64` string representation of the App's icon.
 
+The node source uses a [Swift](https://github.com/sallar/GetAppIcon) binary to fetch the icons so it's pretty fast.
+
 ## Install
 
 ```sh
