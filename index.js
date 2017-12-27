@@ -9,7 +9,7 @@ function getAppIconByPid(pid, size = 32) {
       if (err) {
         return reject(err);
       }
-      return resolve(stdout);
+      return resolve(stdout.trim());
     });
   });
 }
