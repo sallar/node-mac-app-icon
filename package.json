@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/sallar/node-mac-app-icon/issues"
   },
-  "homepage": "https://github.com/sallar/node-mac-app-icon#readme"
+  "homepage": "https://github.com/sallar/node-mac-app-icon#readme",
+  "dependencies": {
+    "execa": "^0.8.0"
+  }
 }

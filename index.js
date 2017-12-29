@@ -1,21 +1,30 @@
 const path = require('path');
 const child = require('child_process');
+const execa = require('execa');
 
 const execPath = path.resolve(__dirname, './run');
 
-function getAppIconByPid(pid, size = 32) {
-  return new Promise((resolve, reject) => {
-    child.execFile(execPath, [pid, '--size', size], (err, stdout) => {
-      if (err) {
-        return reject(err);
-      }
-      return resolve(stdout.trim());
-    });
+function getOptions(opts) {
+  return Object.assign(
+    {},
+    {
+      size: 32
+    },
+    opts
+  );
+}
+
+function getAppIconByPid(pid, opts) {
+  opts = getOptions(opts);
+  return Promise.resolve().then(() => {
+    return execa.stdout(execPath, [pid, '--size', opts.size]/* , {
+      encoding: 'buffer'
+    } */);
   });
 }
 
-function getAppIconListByPid(pidArray, size) {
-  return Promise.all(pidArray.map(pid => getAppIconByPid(pid, size))).then(
+function getAppIconListByPid(pidArray, opts) {
+  return Promise.all(pidArray.map(pid => getAppIconByPid(pid, opts))).then(
     result =>
       result.map((icon, i) => ({
         pid: pidArray[i],
