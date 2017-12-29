@@ -1,5 +1,4 @@
 const path = require('path');
-const child = require('child_process');
 const execa = require('execa');
 
 const execPath = path.resolve(__dirname, './run');
