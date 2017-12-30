@@ -7,8 +7,7 @@ function getOptions(opts) {
   return Object.assign(
     {},
     {
-      size: 32,
-      encoding: 'base64'
+      size: 32
     },
     opts
   );
@@ -19,9 +18,9 @@ function getAppIconByPid(pid, opts) {
   return Promise.resolve().then(() => {
     return execa.stdout(
       execPath,
-      [pid, '--size', opts.size, '--encoding', opts.encoding],
+      [pid, '--size', opts.size, '--encoding', 'buffer'],
       {
-        encoding: opts.encoding === 'buffer' ? 'buffer' : 'utf8'
+        encoding: 'buffer'
       }
     );
   });
