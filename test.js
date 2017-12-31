@@ -9,8 +9,8 @@ if (!finderPid) {
 
 finderPid = parseInt(finderPid.toString().trim(), 10);
 
-getAppIconByPid(finderPid, { size: 10, encoding: 'buffer' }).then(
-  res => console.log(res),
+getAppIconByPid(finderPid, { size: 10 }).then(
+  res => console.log(res.toString('base64')),
   err => console.error(err)
 );
 
