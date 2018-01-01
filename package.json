@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "description": "Get App icons by pid on macOS in NodeJS",
   "main": "index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "./build.sh",
     "prepare": "npm run build",
