@@ -1,8 +1,9 @@
 {
   "name": "node-mac-app-icon",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Get App icons by pid on macOS in NodeJS",
   "main": "index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "./build.sh",
     "prepare": "npm run build",
