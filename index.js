@@ -1,7 +1,9 @@
 const path = require('path');
 const execa = require('execa');
+const electronUtil = require('electron-util/node');
 
-const execPath = path.resolve(__dirname, './run');
+// Workaround for https://github.com/electron/electron/issues/9459
+const execPath = path.join(electronUtil.fixPathForAsarUnpack(__dirname), 'run');
 
 function getOptions(opts) {
   return Object.assign(
