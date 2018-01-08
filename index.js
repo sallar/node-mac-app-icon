@@ -17,15 +17,13 @@ function getOptions(opts) {
 
 function getAppIconByPid(pid, opts) {
   opts = getOptions(opts);
-  return Promise.resolve().then(() => {
-    return execa.stdout(
-      execPath,
-      [pid, '--size', opts.size, '--encoding', 'buffer'],
-      {
-        encoding: 'buffer'
-      }
-    );
-  });
+  return execa.stdout(
+    execPath,
+    [pid, '--size', opts.size, '--encoding', 'buffer'],
+    {
+      encoding: 'buffer'
+    }
+  );
 }
 
 function getAppIconListByPid(pidArray, opts) {
