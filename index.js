@@ -27,7 +27,15 @@ function getAppIconByPid(pid, opts) {
 }
 
 function getAppIconListByPid(pidArray, opts) {
-  return Promise.all(pidArray.map(pid => getAppIconByPid(pid, opts))).then(
+  const { failOnError, ...rest } = opts;
+  return Promise.all(
+    pidArray.map(pid => getAppIconByPid(pid, rest).catch(err => {
+      if (failOnError === true) {
+        return Promise.reject(err);
+      }
+      return null;
+    }))
+  ).then(
     result =>
       result.map((icon, i) => ({
         pid: pidArray[i],
