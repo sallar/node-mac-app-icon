@@ -9,7 +9,8 @@ function getOptions(opts) {
   return Object.assign(
     {},
     {
-      size: 32
+      size: 32,
+      failOnError: true
     },
     opts
   );
@@ -27,10 +28,10 @@ function getAppIconByPid(pid, opts) {
 }
 
 function getAppIconListByPid(pidArray, opts) {
-  const { failOnError, ...rest } = opts;
+  opts = getOptions(opts);
   return Promise.all(
-    pidArray.map(pid => getAppIconByPid(pid, rest).catch(err => {
-      if (failOnError === true) {
+    pidArray.map(pid => getAppIconByPid(pid, opts).catch(err => {
+      if (opts.failOnError === true) {
         return Promise.reject(err);
       }
       return null;
