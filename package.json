@@ -23,5 +23,8 @@
   "dependencies": {
     "electron-util": "^0.4.1",
     "execa": "^0.8.0"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^3.0.4"
   }
 }

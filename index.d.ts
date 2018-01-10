@@ -1,6 +1,7 @@
 declare namespace NodeMacAppIcon {
   export type Options = {
     size: number;
+    failOnError: boolean;
   };
   export type PidIcon = {
     pid: number;

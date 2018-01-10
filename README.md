@@ -30,18 +30,85 @@ getAppIconListByPid([814, 20134, 503], { size: 512 }).then(res => {
 
 ## API
 
-### getAppIconByPid(pid, options)
+## Functions
 
-Returns a `Promise` that is fulfilled with a `Buffer` containting the app icon's image data. Options:
+<dl>
+<dt><a href="#getAppIconByPid">getAppIconByPid(pid, opts)</a> ⇒ <code>Promise.&lt;Buffer&gt;</code></dt>
+<dd><p>Find an icon for a running application (by it&#39;s PID)</p>
+</dd>
+<dt><a href="#getAppIconListByPid">getAppIconListByPid(pidArray, opts)</a> ⇒ <code>Promise.&lt;Array.&lt;ListResult&gt;&gt;</code></dt>
+<dd><p>Find icons for a list of running apps (by their PIDs)</p>
+</dd>
+</dl>
 
-* `size`: Size of the icon in **points**. On Retina displays (2x pixels), a value of `32` will product an image of size 64x64 pixels.
+## Typedefs
 
-### getAppIconListByPid(pidArray, options)
+<dl>
+<dt><a href="#Options">Options</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#ListOptions">ListOptions</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#ListResult">ListResult</a> : <code>Object</code></dt>
+<dd></dd>
+</dl>
 
-Returns a `Promise` that is fulfilled with an array of `pid`s and their icons. Options:
+<a name="getAppIconByPid"></a>
 
-* `size`: Size of the icon in **points**. On Retina displays (2x pixels), a value of `32` will product an image of size 64x64 pixels.
-* `failOnError`: Whether or not the `Promise` rejects if one of the `pid`s in the array doesn't produce any icons. If set to `false`, a `null` value will be assgined to any icon that is not found.
+## getAppIconByPid(pid, opts) ⇒ <code>Promise.&lt;Buffer&gt;</code>
+Find an icon for a running application (by it's PID)
+
+**Kind**: global function
+**Returns**: <code>Promise.&lt;Buffer&gt;</code> - Buffer containing image data
+
+| Param | Type | Description |
+| --- | --- | --- |
+| pid | <code>number</code> | App PID (Process ID) |
+| opts | [<code>ListOptions</code>](#ListOptions) |  |
+
+<a name="getAppIconListByPid"></a>
+
+## getAppIconListByPid(pidArray, opts) ⇒ <code>Promise.&lt;Array.&lt;ListResult&gt;&gt;</code>
+Find icons for a list of running apps (by their PIDs)
+
+**Kind**: global function
+**Returns**: <code>Promise.&lt;Array.&lt;ListResult&gt;&gt;</code> - Buffer containing image data
+
+| Param | Type | Description |
+| --- | --- | --- |
+| pidArray | <code>Array.&lt;number&gt;</code> | App PID (Process ID) |
+| opts | [<code>Options</code>](#Options) |  |
+
+<a name="Options"></a>
+
+## Options : <code>Object</code>
+**Kind**: global typedef
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| size | <code>number</code> | Size of output icon (in points) |
+
+<a name="ListOptions"></a>
+
+## ListOptions : <code>Object</code>
+**Kind**: global typedef
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| size | <code>number</code> | Size of output icon (in points) |
+| failOnError | <code>boolean</code> | Fail hard if a pid in the list was not found |
+
+<a name="ListResult"></a>
+
+## ListResult : <code>Object</code>
+**Kind**: global typedef
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| pid | <code>number</code> | PID of the application |
+| icon | <code>Buffer</code> | Buffer containing image data |
 
 ## License
 

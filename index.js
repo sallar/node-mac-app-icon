@@ -5,6 +5,23 @@ const electronUtil = require('electron-util/node');
 // Workaround for https://github.com/electron/electron/issues/9459
 const execPath = path.join(electronUtil.fixPathForAsarUnpack(__dirname), 'run');
 
+/**
+ * @typedef {Object} Options
+ * @property {number} size Size of output icon (in points)
+ */
+
+/**
+ * @typedef {Object} ListOptions
+ * @property {number} size Size of output icon (in points)
+ * @property {boolean} failOnError Fail hard if a pid in the list was not found
+ */
+
+/**
+ * @typedef {Object} ListResult
+ * @property {number} pid PID of the application
+ * @property {Buffer} icon Buffer containing image data
+ */
+
 function getOptions(opts) {
   return Object.assign(
     {},
@@ -16,6 +33,12 @@ function getOptions(opts) {
   );
 }
 
+/**
+ * Find an icon for a running application (by it's PID)
+ * @param {number} pid App PID (Process ID)
+ * @param {ListOptions} opts
+ * @returns {Promise<Buffer>} Buffer containing image data
+ */
 function getAppIconByPid(pid, opts) {
   opts = getOptions(opts);
   return execa.stdout(
@@ -27,6 +50,12 @@ function getAppIconByPid(pid, opts) {
   );
 }
 
+/**
+ * Find icons for a list of running apps (by their PIDs)
+ * @param {number[]} pidArray App PID (Process ID)
+ * @param {Options} opts
+ * @returns {Promise<ListResult[]>} Buffer containing image data
+ */
 function getAppIconListByPid(pidArray, opts) {
   opts = getOptions(opts);
   return Promise.all(
