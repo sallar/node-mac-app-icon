@@ -14,22 +14,6 @@ Returning a `Buffer` is inspired by [sindresorhus/file-icon](https://github.com/
 $ npm install node-mac-app-icon --save
 ```
 
-## Usage
-
-```js
-const { getAppIconByPid, getAppIconListByPid } = require('node-mac-app-icon');
-
-getAppIconByPid(814, { size: 32 }).then(res => {
-  console.log(res); // res is a Buffer
-});
-
-getAppIconListByPid([814, 20134, 503], { size: 512 }).then(res => {
-  console.log(res); // array of { pid: ..., icon: ... }
-});
-```
-
-## API
-
 ## Functions
 
 <dl>
@@ -65,6 +49,14 @@ Find an icon for a running application (by it's PID)
 | pid | <code>number</code> | App PID (Process ID) |
 | opts | [<code>ListOptions</code>](#ListOptions) |  |
 
+**Example**
+```js
+const { getAppIconByPid } = require('node-mac-app-icon');
+
+getAppIconByPid(814, { size: 32 }).then(res => {
+  console.log(res); // res is a Buffer
+});
+```
 <a name="getAppIconListByPid"></a>
 
 ## getAppIconListByPid(pidArray, opts) ⇒ <code>Promise.&lt;Array.&lt;ListResult&gt;&gt;</code>
@@ -78,6 +70,14 @@ Find icons for a list of running apps (by their PIDs)
 | pidArray | <code>Array.&lt;number&gt;</code> | App PID (Process ID) |
 | opts | [<code>Options</code>](#Options) |  |
 
+**Example**
+```js
+const { getAppIconListByPid } = require('node-mac-app-icon');
+
+getAppIconListByPid([814, 20134, 503], { size: 512 }).then(res => {
+  console.log(res); // array of { pid: ..., icon: ... }
+});
+```
 <a name="Options"></a>
 
 ## Options : <code>Object</code>

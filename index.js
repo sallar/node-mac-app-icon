@@ -35,6 +35,13 @@ function getOptions(opts) {
 
 /**
  * Find an icon for a running application (by it's PID)
+ * @example
+ * const { getAppIconByPid } = require('node-mac-app-icon');
+ *
+ * getAppIconByPid(814, { size: 32 }).then(res => {
+ *   console.log(res); // res is a Buffer
+ * });
+ *
  * @param {number} pid App PID (Process ID)
  * @param {ListOptions} opts
  * @returns {Promise<Buffer>} Buffer containing image data
@@ -52,6 +59,13 @@ function getAppIconByPid(pid, opts) {
 
 /**
  * Find icons for a list of running apps (by their PIDs)
+ * @example
+ * const { getAppIconListByPid } = require('node-mac-app-icon');
+ *
+ * getAppIconListByPid([814, 20134, 503], { size: 512 }).then(res => {
+ *   console.log(res); // array of { pid: ..., icon: ... }
+ * });
+ *
  * @param {number[]} pidArray App PID (Process ID)
  * @param {Options} opts
  * @returns {Promise<ListResult[]>} Buffer containing image data
