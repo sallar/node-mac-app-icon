@@ -28,6 +28,21 @@ getAppIconListByPid([814, 20134, 503], { size: 512 }).then(res => {
 });
 ```
 
+## API
+
+### getAppIconByPid(pid, options)
+
+Returns a `Promise` that is fulfilled with a `Buffer` containting the app icon's image data. Options:
+
+* `size`: Size of the icon in **points**. On Retina displays (2x pixels), a value of `32` will product an image of size 64x64 pixels.
+
+### getAppIconListByPid(pidArray, options)
+
+Returns a `Promise` that is fulfilled with an array of `pid`s and their icons. Options:
+
+* `size`: Size of the icon in **points**. On Retina displays (2x pixels), a value of `32` will product an image of size 64x64 pixels.
+* `failOnError`: Whether or not the `Promise` rejects if one of the `pid`s in the array doesn't produce any icons. If set to `false`, a `null` value will be assgined to any icon that is not found.
+
 ## License
 
 This software is licensed under the [MIT License](LICENSE)
